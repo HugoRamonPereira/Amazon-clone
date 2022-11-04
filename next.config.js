@@ -9,4 +9,7 @@ module.exports = {
   images: {
     domains: ["fakestoreapi.com"],
   },
+  images: {
+    unoptimized: true,
+  },
 };

@@ -18,5 +18,6 @@ module.exports = {
   variants: {
     extend: {},
   },
+  // Line-clamp is used to limit the amount of text we wish to see something like ellipsis
   plugins: [require("@tailwindcss/line-clamp")],
 };

@@ -16,7 +16,6 @@ const Header = () => {
             className="cursor-pointer mx-4"
             width={150}
             height={40}
-            objectFit="contain"
             alt="Amazon logo"
           />
         </div>
