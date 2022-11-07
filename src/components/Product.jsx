@@ -20,10 +20,9 @@ const Product = ({ id, title, price, description, category, image }) => {
       </p>
       <Image
         src={image}
-        className="mb-4 mx-auto"
+        className="mb-4 mx-auto object-contain"
         height={200}
         width={200}
-        objectFit="contain"
         alt={description}
       />
       <h4>{title}</h4>
