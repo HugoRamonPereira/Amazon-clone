@@ -2,16 +2,34 @@ import React, { useState } from "react";
 import Image from "next/image";
 import { StarIcon } from "@heroicons/react/solid";
 import Currency from "react-currency-formatter";
+import { useDispatch } from "react-redux";
+import { addToCart } from "../slices/cartSlice";
 
 let MAX_STARS = 5;
 let MIN_STARS = 1;
 
 const Product = ({ id, title, price, description, category, image }) => {
+  const dispatch = useDispatch();
   const [rating] = useState(
     Math.floor(Math.random() * (MAX_STARS - MIN_STARS + 1) + MIN_STARS)
   );
 
   const [isPrime] = useState(Math.random() < 0.5);
+
+  const addItemToCart = () => {
+    const product = {
+      id,
+      title,
+      price,
+      rating,
+      description,
+      category,
+      image,
+      isPrime,
+    };
+    //  With the dispatch below we are sending the product object to the redux store
+    dispatch(addToCart(product));
+  };
 
   return (
     <div className="relative flex flex-col m-5 rounded-md bg-white z-30 p-10">
@@ -48,7 +66,9 @@ const Product = ({ id, title, price, description, category, image }) => {
           <p className="text-xs text-gray-500">Free Next-Day Delivery</p>
         </div>
       )}
-      <button className="mt-auto button">Add to Cart</button>
+      <button onClick={addItemToCart} className="mt-auto button">
+        Add to Cart
+      </button>
     </div>
   );
 };
