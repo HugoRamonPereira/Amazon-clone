@@ -6,9 +6,11 @@ import {
   SearchIcon,
   ShoppingCartIcon,
 } from "@heroicons/react/outline";
+import { useRouter } from "next/router";
 
 const Header = () => {
   const { data: session } = useSession();
+  const router = useRouter();
 
   return (
     <header>
@@ -20,6 +22,7 @@ const Header = () => {
             width={150}
             height={40}
             alt="Amazon logo"
+            onClick={() => router.push("/")}
           />
         </div>
         <div className="hidden sm:flex items-center h-10 rounded-md flex-grow cursor-pointer bg-yellow-400 hover:bg-yellow-500 ease-in-out duration-100">
@@ -41,7 +44,10 @@ const Header = () => {
             <p className="font-extrabold md:text-sm">& Orders</p>
           </div>
 
-          <div className="relative link flex items-center">
+          <div
+            className="relative link flex items-center"
+            onClick={() => router.push("/checkout")}
+          >
             <span className="absolute top-0 right-0 md:right-6 h-5 w-5 bg-yellow-400 text-center mb-3 rounded-full text-black font-bold">
               5
             </span>
