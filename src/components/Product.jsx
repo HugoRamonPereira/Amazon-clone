@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import { StarIcon } from "@heroicons/react/solid";
 import Currency from "react-currency-formatter";
@@ -10,11 +10,16 @@ let MIN_STARS = 1;
 
 const Product = ({ id, title, price, description, category, image }) => {
   const dispatch = useDispatch();
-  const [rating] = useState(
+  const [rating, setRating] = useState(
     Math.floor(Math.random() * (MAX_STARS - MIN_STARS + 1) + MIN_STARS)
   );
 
-  const [isPrime] = useState(Math.random() < 0.5);
+  const [isPrime, SetIsPrime] = useState(Math.random() < 0.5);
+
+  useEffect(() => {
+    setRating(Math.floor(Math.random() * (MAX_STARS - MIN_STARS + 1) + MIN_STARS));
+    SetIsPrime(Math.random() < 0.5);
+  }, [])
 
   const addItemToCart = () => {
     const product = {
@@ -46,7 +51,7 @@ const Product = ({ id, title, price, description, category, image }) => {
       <h4>{title}</h4>
       <div className="flex">
         {Array(rating)
-          .fill()
+          .fill() 
           .map((_, index) => (
             <StarIcon className="h-5 text-yellow-500" key={index} />
           ))}
