@@ -1,14 +1,14 @@
-import React from "react";
-import Image from "next/image";
-import { signIn, signOut, useSession } from "next-auth/react";
+import React from 'react';
+import Image from 'next/image';
+import { signIn, signOut, useSession } from 'next-auth/react';
 import {
   MenuIcon,
   SearchIcon,
   ShoppingCartIcon,
-} from "@heroicons/react/outline";
-import { useRouter } from "next/router";
-import { useSelector } from "react-redux";
-import { selectItems } from "../slices/cartSlice";
+} from '@heroicons/react/outline';
+import { useRouter } from 'next/router';
+import { useSelector } from 'react-redux';
+import { selectItems } from '../slices/cartSlice';
 
 const Header = () => {
   const { data: session } = useSession();
@@ -25,7 +25,7 @@ const Header = () => {
             width={150}
             height={40}
             alt="Amazon logo"
-            onClick={() => router.push("/")}
+            onClick={() => router.push('/')}
           />
         </div>
         <div className="hidden sm:flex items-center h-10 rounded-md flex-grow cursor-pointer bg-yellow-400 hover:bg-yellow-500 ease-in-out duration-100">
@@ -38,7 +38,7 @@ const Header = () => {
 
         <div className="flex items-center text-white text-sm space-x-6 mx-6 whitespace-nowrap">
           <div onClick={!session ? signIn : signOut} className="link">
-            <p>{session ? `Hello, ${session.user.name}` : "Sign in"}</p>
+            <p>{session ? `Hello, ${session.user.name}` : 'Sign in'}</p>
             <p className="font-extrabold md:text-sm">Account & Lists</p>
           </div>
 
@@ -49,7 +49,7 @@ const Header = () => {
 
           <div
             className="relative link flex items-center"
-            onClick={() => router.push("/checkout")}
+            onClick={() => router.push('/checkout')}
           >
             <span className="absolute top-0 right-0 md:right-6 h-5 w-5 bg-yellow-400 text-center mb-3 rounded-full text-black font-bold">
               {items.length}

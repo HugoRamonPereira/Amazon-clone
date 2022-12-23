@@ -1,11 +1,11 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
   items: [],
 };
 
 export const cartSlice = createSlice({
-  name: "cart",
+  name: 'cart',
   initialState,
   reducers: {
     //Actions
@@ -22,7 +22,7 @@ export const cartSlice = createSlice({
         // The item is in the cart, remove it
         newCart.splice(index, 1);
       } else {
-        console.warn(`Cant remove items`);
+        console.warn('Cant remove items');
       }
       state.items = newCart;
     },

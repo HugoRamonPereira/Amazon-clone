@@ -6,13 +6,13 @@
 // nextConfig;
 
 module.exports = {
+  experimental:{
+    appDir: true
+  },
   images: {
-    domains: ["fakestoreapi.com"],
+    domains: ['fakestoreapi.com'],
   },
   env: {
-    stripe_public_key: process.env.stripe_public_key,
-  },
-  images: {
-    unoptimized: true,
-  },
+    stripe_public_key: process.env.STRIPE_PUBLIC_KEY,
+  }
 };

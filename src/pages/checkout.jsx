@@ -1,13 +1,13 @@
-import Image from "next/image";
-import React from "react";
-import Header from "../components/Header";
-import Currency from "react-currency-formatter";
-import CheckoutProduct from "../components/CheckoutProduct";
-import { useSelector } from "react-redux";
-import { selectItems, selectTotal } from "../slices/cartSlice";
-import { useSession } from "next-auth/react";
-import { loadStripe } from "@stripe/stripe-js";
-
+import React from 'react';
+import Image from 'next/image';
+import Header from '../components/Header';
+import Currency from 'react-currency-formatter';
+import CheckoutProduct from '../components/CheckoutProduct';
+import { useSelector } from 'react-redux';
+import { selectItems, selectTotal } from '../slices/cartSlice';
+import axios from 'axios';
+import { useSession } from 'next-auth/react';
+import { loadStripe } from '@stripe/stripe-js';
 const stripePromise = loadStripe(process.env.stripe_public_key);
 
 const Checkout = () => {
@@ -18,13 +18,18 @@ const Checkout = () => {
   const createCheckoutSession = async () => {
     const stripe = await stripePromise;
 
-    const checkoutSession = await axios.post(
-      "/api/create-checkout-session.js",
+    const checkoutSession = await axios.post('/api/create-checkout-session.js',
       {
         items: items,
         email: session.user.email,
-      }
-    );
+      });
+      //Function to redirect the user to checkout route
+    const result = await stripe.redirectToCheckout({
+      sessionId: checkoutSession.data.id
+    });
+    if (result.error) {
+      console.log(result.error.message);
+    }
   };
 
   return (
@@ -43,8 +48,8 @@ const Checkout = () => {
           <div className="flex flex-col p-5 space-y-10 bg-white">
             <h1 className="text-3xl border-b pb-4">
               {items.length === 0
-                ? "Your Shoping Cart is empty"
-                : "Shopping Cart"}
+                ? 'Your Shoping Cart is empty'
+                : 'Shopping Cart'}
             </h1>
 
             {items.map((item, i) => (
@@ -66,7 +71,7 @@ const Checkout = () => {
           {items.length > 0 && (
             <>
               <h2 className="whitespace-nowrap">
-                Subtotal ({items.length} items):{" "}
+                Subtotal ({items.length} items):{' '}
                 <span className="font-bold">
                   <Currency quantity={total} currency="USD" />
                 </span>
@@ -78,10 +83,10 @@ const Checkout = () => {
                 onClick={createCheckoutSession}
                 className={`button mt-2 ${
                   !session &&
-                  "from-gray-300 to-gray-500 border-gray-200 text-gray-300 cursor-not-allowed"
+                  'from-gray-300 to-gray-500 border-gray-200 text-gray-300 cursor-not-allowed'
                 }`}
               >
-                {!session ? "Sign in to checkout" : "Proceed to checkout"}
+                {!session ? 'Sign in to checkout' : 'Proceed to checkout'}
               </button>
             </>
           )}

@@ -1,5 +1,6 @@
-import Image from "next/image";
-import Product from "./Product";
+import React from 'react';
+import Image from 'next/image';
+import Product from './Product';
 
 const ProductFeed = ({ products }) => {
   return (
