@@ -1,10 +1,9 @@
+/** @type {import('tailwindcss').Config} */
 module.exports = {
-  mode: 'jit',
-  purge: [
-    './src/pages/**/*.{js,ts,jsx,tsx}',
-    './src/components/**/*.{js,ts,jsx,tsx}',
+  content: [
+    './src/pages/**/*.{js,ts,jsx}',
+    './src/components/**/*.{js,ts,jsx}',
   ],
-  darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
       colors: {
@@ -14,9 +13,6 @@ module.exports = {
         },
       },
     },
-  },
-  variants: {
-    extend: {},
   },
   plugins: [require('@tailwindcss/line-clamp')],
 };

@@ -27,9 +27,7 @@ const Checkout = () => {
     const result = await stripe.redirectToCheckout({
       sessionId: checkoutSession.data.id
     });
-    if (result.error) {
-      console.log(result.error.message);
-    }
+    if (result.error) {(result.error.message);}
   };
 
   return (

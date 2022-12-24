@@ -1,15 +1,13 @@
-const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
+const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 
 export default async (req, res) => {
   const { items, email } = req.body;
 
-  console.log(items);
-  console.log(email);
   const transformedItems = items.map((item) => ({
     description: item.description,
     quantity: 1,
     price_data: {
-      currency: "usd",
+      currency: 'usd',
       unit_amount: item.price * 100,
       product_data: {
         name: item.title,
@@ -22,16 +20,16 @@ export default async (req, res) => {
     shipping_rates: ['shr_1MHxRmAvTTmGNqxslohZolSx'],
     shipping_address_collection: {
       allowed_countries: ['US', 'CA', 'UK', 'BR']
-    },  
+    },
     line_items: transformedItems,
     mode: 'payment',
     sucess_url: `${process.env.HOST}/sucess`,
     cancel_url: `${process.env.HOST}/checkout`,
     metadata: {
       email,
-      images: JSON.stringify(images.map(item => item.image));
+      images: JSON.stringify(images.map(item => item.image)),
     }
   });
 
-  res.status(200).json({ id: session.id })
+  res.status(200).json({ id: session.id });
 };

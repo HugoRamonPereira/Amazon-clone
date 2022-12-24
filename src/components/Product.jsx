@@ -10,8 +10,8 @@ let MIN_STARS = 1;
 
 const Product = ({ id, title, price, description, category, image }) => {
   const dispatch = useDispatch();
-  const [rating, setRating] = useState(Math.floor(Math.random() * (MAX_STARS - MIN_STARS + 1) + MIN_STARS));
-  const [isPrime, SetIsPrime] = useState(Math.random() < 0.5);
+  const [rating, setRating] = useState(null);
+  const [isPrime, SetIsPrime] = useState(null);
 
   useEffect(() => {
     setRating(Math.floor(Math.random() * (MAX_STARS - MIN_STARS + 1) + MIN_STARS));
@@ -40,7 +40,7 @@ const Product = ({ id, title, price, description, category, image }) => {
       </p>
       <Image
         src={image}
-        className="mb-4 mx-auto object-contain"
+        className="mb-4 mx-auto"
         height={200}
         width={200}
         alt={description}
@@ -53,8 +53,10 @@ const Product = ({ id, title, price, description, category, image }) => {
             <StarIcon className="h-5 text-yellow-500" key={index} />
           ))}
       </div>
-      <p className="text-sm my-2 line-clamp-3">{description}</p>
-      <div className="mb-4">
+      <p className="text-xs my-2 line-clamp-3">
+        {description}
+      </p>
+      <div className="mb-5">
         <Currency quantity={price} currency="USD" />
       </div>
       {isPrime && (
