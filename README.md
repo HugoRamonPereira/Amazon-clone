@@ -1,36 +1,68 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Amazon Clone
 
-## Getting Started
+This is the Amazon Clone - A massive e-commerce project that was built using [React.js](https://reactjs.org/) with [Next.js](https://nextjs.org/), [Javascript](https://www.ecma-international.org/), it also uses [TailwindCSS](https://tailwindcss.com/) to make this application look exactly like the real Amazon website, [Firebase](https://firebase.google.com) to manage Google Authentication, [Stripe](https://stripe.com/en-br) to manage payments through the web and [Redux Toolkit](https://redux-toolkit.js.org) to manage the state of our application so we can keep track of the changes of our application and have full control over it.
 
-First, run the development server:
+<p>&nbsp;</p>
 
-```bash
-npm run dev
-# or
-yarn dev
+<p align-items="center" justify-content="center">
+<img src="./public/amazonclone-techstack.png">
+</p>
+
+<p>&nbsp;</p>
+
+This amazon replica lists a lot of products that come from an API called [fakestoreapi](https://fakestoreapi.com), where the user, clients can see the products, their prices and ratings, as well as add or remove the products from the cart and later on they can use Stripe to pay for the products they want.
+
+<p>&nbsp;</p>
+
+This is a preview of the application
+
+<br/>
+
+<img src="./public/amazon-preview.png" />
+
+<br/>
+
+# Installation
+
+After downloading you should install the missing packages and dependencies
+
+using NPM:
+
+```sh
+npm install
+```
+using Yarn
+```sh
+yarn add
+```
+using PNPM:
+
+```sh
+pnpm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+<br/>
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+# Run the project in development environment
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+using NPM:
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+```sh
+npm run dev
+```
+using Yarn
+```sh
+yarn dev
+```
+using PNPM
+```sh
+pnpm run dev
+```
+# Production Mode
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+The Production Version of the Amazon Clone is currently up and running on [Vercel](http://vercel.com) and can be seen if you click on the link: [Amazon Clone Production Vercel](https://amazon-clone-iota-seven.vercel.app)
 
-## Learn More
 
-To learn more about Next.js, take a look at the following resources:
+# License
+© Feito com muito &#10084; por [Ramon Pereira](https://www.linkedin.com/in/hugo-ramon-pereira/) 🤝
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
