@@ -10,7 +10,7 @@ import { useSession } from 'next-auth/react';
 import { loadStripe } from '@stripe/stripe-js';
 const stripePromise = loadStripe(process.env.stripe_public_key);
 
-const Checkout = () => {
+function Checkout() {
   const items = useSelector(selectItems);
   const total = useSelector(selectTotal);
   const { data: session } = useSession();
@@ -94,6 +94,6 @@ const Checkout = () => {
       </main>
     </div>
   );
-};
+}
 
 export default Checkout;
