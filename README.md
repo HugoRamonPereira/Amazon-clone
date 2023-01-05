@@ -64,5 +64,4 @@ The Production Version of the Amazon Clone is currently up and running on [Verce
 
 
 # License
-© Feito com muito &#10084; por [Ramon Pereira](https://www.linkedin.com/in/hugo-ramon-pereira/) 🤝
-
+© Feito com muito &#10084; por [Ramon Pereira](https://www.linkedin.com/in/hugo-ramon-pereira/) 🇧🇷
