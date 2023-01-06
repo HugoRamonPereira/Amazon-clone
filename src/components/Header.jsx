@@ -42,7 +42,10 @@ const Header = () => {
             <p className="font-extrabold md:text-sm">Account & Lists</p>
           </div>
 
-          <div className="link">
+          <div
+            onClick={() => session && router.push('/orders')}
+            className="cursor-pointer link"
+          >
             <p>Returns</p>
             <p className="font-extrabold md:text-sm">& Orders</p>
           </div>
@@ -67,8 +70,8 @@ const Header = () => {
           <MenuIcon className="h-6 mr-1" />
           All
         </p>
-        <p className="link">Prime Video</p>
-        <p className="link">Amazon Business</p>
+        <p className="link" onClick={() => router.push('https://www.primevideo.com/')}>Prime Video</p>
+        <p className="link" onClick={() => router.push('https://business.amazon.com/')}>Amazon Business</p>
         <p className="link">Today&apos;s Deals</p>
         <p className="link hidden lg:inline-flex">Electronics</p>
         <p className="link hidden lg:inline-flex">Food & Grocery</p>
